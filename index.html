@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <script class="js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de QR</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <title>Registro QR</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Generador de Código QR</h1>
-    <input type="text" id="textInput" placeholder="Escribe algo para generar QR" />
-    <button onclick="generateQRCode()">Generar QR</button>
-    <div id="qrcode"></div>
+    
+        <header>
+            <div class="content">
 
-    <script src="script.js"></script>
+                <div class="menu container">
+
+                    <a href="#" class="logo">TU QR Vehicular</a>
+                    <input type="checkbox" id="menu" />
+                    <label for="menu"> <!--IMAGEN-->
+                        <img src="qr.png" class="menu-icono" alt="">
+                    </label> 
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Servicio</a></li>
+                            <li><a href="#">Productos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </nav>
+            </div>
+        </header>
 </body>
 </html>
