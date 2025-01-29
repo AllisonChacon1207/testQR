@@ -8,7 +8,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(imag.jpg);
+    background-image: url(qr.png);
     background-size: cover;
     background-position:"";
     background-repeat: no-repeat ;
@@ -31,7 +31,7 @@ body{
 
 /*COLOR DE FONDO ARRIBA*/
 .content{
-    background-color: rgb(255, 166, 0);
+    background-color: rgb(84, 147, 241);
     min-height: 80px;
 }
 
@@ -48,9 +48,9 @@ body{
     float: left;
 }
 
-/*COLOR LETRAS*/
+/*COLOR LETRAS DERECHO*/
 .menu .navbar ul li a{
-    font-size: 18px;
+    font-size: 20px;
     padding: 20px;
     color: #000000;
     display: block;
@@ -67,7 +67,7 @@ body{
 }
 
 .menu-icono{
-    width: 25px;
+    width: 30px;
 }
 
 .menu label{
@@ -88,12 +88,13 @@ body{
         display: initial;
     }
 
+    /*BARRITA en PEQUEÑA XD*/
     .menu .navbar{
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background-color: rgb(12, 240, 12);
+        background-color: rgb(62, 192, 224);
         display: none;
     }
 
@@ -104,5 +105,5 @@ body{
     #menu:checked ~ .navbar{
         display: initial;
     }
-
-}
+  
+    }
