@@ -50,8 +50,8 @@ body{
 
 /*COLOR LETRAS DERECHO*/
 .menu .navbar ul li a{
-    font-size: 20px;
-    padding: 20px;
+    font-size: 16px;
+    padding: 16px;
     color: #000000;
     display: block;
     font-weight: bold;
@@ -104,6 +104,16 @@ body{
 
     #menu:checked ~ .navbar{
         display: initial;
+    }
+
+    .tabla{
+        position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     }
   
     }
