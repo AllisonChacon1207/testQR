@@ -4,19 +4,21 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-}
-/*****ESTILO DE LETRA Y IMG****/
+}/************************************/
+
+
+/**********ESTILO DE LETRA Y IMG******/
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(qr.png);
     background-size: cover;
     background-position:"";
     background-repeat: no-repeat ;
-}/*****************************/
+}/****************************************/
 .container{
     max-width: 1200px;
     margin: 0 auto;
-}/****************************/
+}/***************************************/
 
 
 /*****BARRA DE MENU CSS*****/
@@ -109,7 +111,7 @@ body{
     .menu .navbar ul li{
         width: 100%;
     }/*****************************/
-    
+
     /*****************************/
     #menu:checked ~ .navbar{
         display: initial;

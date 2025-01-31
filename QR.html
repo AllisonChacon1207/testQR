@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Vehicular QR</title> <!--TEXTO PESTAÑA-->
-    <link rel="stylesheet" href="style.css">
+    <!--------------------------------------------------------------------------------->
+    <!--<link rel="stylesheet" href="style.css">--->
+    <link rel="stylesheet" href="estilos.css" /><!----->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><!---->
+    <script defer src="app.js"></script><!---->
+    <!---------------------------------------------------------------------------------->
 </head>
 <body><!---------------------------------------------------------------------------------->
         <header><!------------------------------------------------------------------------>
@@ -33,5 +38,18 @@
             </div>
         </header><!------------------------------------------------------------------------->
         <h1>GENERADOR QR</h1>
+        
+        <!---------------------------------------------------------------------------------->
+
+        <div class="contenedor">
+			<form action="" id="formulario" class="formulario">
+				<input type="text" id="link" placeholder="Escribe el texto o URL" />
+				<button class="btn">Generar QR</button>
+			</form>
+
+			<div id="contenedorQR" class="contenedorQR"></div>
+		</div>
+
+
 </body><!----------------------------------------------------------------------------------->
 </html>
