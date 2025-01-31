@@ -5,20 +5,21 @@
     text-decoration: none;
     list-style: none;
 }
-
+/*****ESTILO DE LETRA Y IMG****/
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(qr.png);
     background-size: cover;
     background-position:"";
     background-repeat: no-repeat ;
-}
-
+}/*****************************/
 .container{
     max-width: 1200px;
     margin: 0 auto;
-}
+}/****************************/
 
+
+/*****BARRA DE MENU CSS*****/
 .menu{
     position: absolute;
     top: 10px;
@@ -27,53 +28,57 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+}/*****************************/
 
-/*COLOR DE FONDO ARRIBA*/
+
+/****COLOR DE FONDO ARRIBA****/
 .content{
     background-color: rgb(84, 147, 241);
-    min-height: 80px;
-}
+    min-height: 70px;
+}/*****************************/
 
-/*COLOR TEXTO LOGO*/
+
+/******COLOR TEXTO LOGO******/
 .logo{
-    font-size: 30px;
+    font-size: 28px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     font-weight: bold;
 }
-
 .menu .navbar ul li{
     position: relative;
     float: left;
-}
+}/*****************************/
 
-/*COLOR LETRAS DERECHO*/
+
+/****COLOR LETRAS DERECHO///TAMANO*****/
 .menu .navbar ul li a{
-    font-size: 16px;
-    padding: 16px;
+    font-size: 14px;
+    padding: 20px;
     color: #000000;
     display: block;
     font-weight: bold;
-}
+}/*****************************/
 
-/*SOMBREADO DE SELECCION*/
+
+/****SOMBREADO DE SELECCION****/
 .menu .navbar ul li a:hover{ 
     color: rgb(255, 255, 255);
-}
-
+}/*****************************/
 #menu{
     display: none;
 }
 
+/****TAMAÑO DEL ICONO***/
 .menu-icono{
-    width: 30px;
-}
+    width: 40px;
+}/*****************************/
 
+/****BARRA DE EXTENCION*******/
 .menu label{
     cursor: pointer;
     display: none;
-}
+}/*****************************/
 
 @media(max-width:991px){
     .content{
@@ -84,11 +89,13 @@ body{
         padding: 20px;
     }
 
+    /*****MENU HAMBURGUESA*********/
     .menu label{
         display: initial;
-    }
+    }/*****************************/
 
-    /*BARRITA en PEQUEÑA XD*/
+
+    /*******BARRITA en PEQUEÑA XD******/
     .menu .navbar{
         position: absolute;
         top: 100%;
@@ -96,24 +103,16 @@ body{
         right: 0;
         background-color: rgb(62, 192, 224);
         display: none;
-    }
+    }/*********************************/
 
+    /*****************************/
     .menu .navbar ul li{
         width: 100%;
-    }
-
+    }/*****************************/
+    
+    /*****************************/
     #menu:checked ~ .navbar{
         display: initial;
-    }
-
-    .detalle{
-        position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    }
+    }/*****************************/
   
-    }
+}

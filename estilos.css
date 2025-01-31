@@ -1,0 +1,142 @@
+* {
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(qr.png);
+    background-size: cover;
+    background-position:"";
+    background-repeat: no-repeat ;
+}
+
+.contenedor {
+	max-width: 1200px;
+    margin: 0 auto;
+}
+
+.formulario input[type='text'] {
+	padding: 20px;
+	border: none;
+	background: #fff;
+	width: 100%;
+	border-radius: 5px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	font-size: 20px;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.formulario .btn {
+	width: 100%;
+	border: none;
+	background: rgb(0, 0, 0);
+	color: #fff;
+	cursor: pointer;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*BOTON CUANDO LO SELECCIONAS*/
+.formulario .btn:hover {
+	background: #3e14b2;
+}
+.contenedorQR {
+	display: flex;
+	justify-content: center;
+	padding: 40px 0;
+}
+
+/*COLOR DE FONDO ARRIBA*/
+.content{
+    background-color: rgb(84, 147, 241);
+    min-height: 80px;
+}
+
+/*COLOR TEXTO LOGO Y EL TAMAÑO*/
+.logo{
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.menu .navbar ul li{
+    position: fixed;
+    float: left;
+}
+
+/*COLOR LETRAS DERECHO*/
+.menu .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #000000;
+    display: block;
+    font-weight: bold;
+}
+
+/*SOMBREADO DE SELECCION*/
+.menu .navbar ul li a:hover{ 
+    color: rgb(255, 0, 0);
+}
+
+#menu{
+    display: none;
+}
+
+.menu-icono{
+    width: 30px;
+}
+
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:991px){
+    .content{
+        min-height: 70px;
+    }
+    .menu{
+        top: 0;
+        padding: 20px;
+    }
+
+    .menu label{
+        display: initial;
+    }
+
+    /*BARRITA en PEQUEÑA XD*/
+    .menu .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgb(62, 192, 224);
+        display: none;
+    }
+
+    .menu .navbar ul li{
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar{
+        display: initial;
+    }
+
+    .detalle{
+        position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+}
