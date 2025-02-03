@@ -24,7 +24,7 @@ body{
 /*****BARRA DE MENU CSS*****/
 .menu{
     position: absolute;
-    top: 10px;
+    top: 5px;
     left: 0;
     right: 0;
     display: flex;
@@ -36,13 +36,13 @@ body{
 /****COLOR DE FONDO ARRIBA****/
 .content{
     background-color: rgb(84, 147, 241);
-    min-height: 70px;
+    min-height: 98px;
 }/*****************************/
 
 
 /******COLOR TEXTO LOGO******/
 .logo{
-    font-size: 28px;
+    font-size: 30px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     font-weight: bold;
@@ -55,8 +55,8 @@ body{
 
 /****COLOR LETRAS DERECHO///TAMANO*****/
 .menu .navbar ul li a{
-    font-size: 14px;
-    padding: 20px;
+    font-size: 20px;
+    padding: 15px;
     color: #000000;
     display: block;
     font-weight: bold;
