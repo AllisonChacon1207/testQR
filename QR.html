@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Vehicular QR</title> <!--TEXTO PESTAÑA-->
-    <!--------------------------------------------------------------------------------->
-    <!--<link rel="stylesheet" href="style.css">--->
-    <link rel="stylesheet" href="estilos.css" /><!----->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><!---->
-    <script defer src="app.js"></script><!---->
-    <!---------------------------------------------------------------------------------->
-</head>
-<body><!---------------------------------------------------------------------------------->
-        <header><!------------------------------------------------------------------------>
-            <div class="content">
-            <div class="menu container">
-                    <a href="#" class="logo">TU QR VEHICULAR</a><!--TEXTO PRINCIPAL-->
-                    <input type="checkbox" id="menu" />
-                <!------------------------------------------------------------------------->
-                    <label for="menu">
-                        <img src="Logo.png" class="menu-icono" alt=""><!----LOGO---->
-                    </label> 
-                <!------------------------------------------------------------------------->
-                    <nav class="navbar"><!-----MENU DE NAVEGACION------->
-                        <ul>
-                        <li><a href="index.html">INICIO</a></li>
-                        <li><a href="estantes.html">ESTANTES</a></li>
-                        <li><a href="fila.html">FILA</a></li>
-                        <li><a href="carpeta.html">CARPETA</a></li>
-                        <li><a href="detalle.html">DETALLE DECLARACIÓN</a></li>
-                        <li><a href="datos.html">DATOS SOLICITANTES</a></li>
-                        <li><a href="QR.html">GENERADOR QR</a></li>
-                        
-                        </ul>
-                    </nav>
-                <!------------------------------------------------------------------------->
-            </div>
-            </div>
-        </header><!------------------------------------------------------------------------->
-        
-        <!---------------------------------------------------------------------------------->
-        <h1>GENERADOR QR</h1>
-        <div class="contenedor">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Código QR con Javascript</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="estilos.css" />
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script defer src="app.js"></script>
+	</head>
+	<body>
+		<div class="contenedor">
 			<form action="" id="formulario" class="formulario">
 				<input type="text" id="link" placeholder="Escribe el texto o URL" />
-				<button class="btn">Generar QR</button>
+				<button type="button" class="btn" id="generarQR">Generar QR</button>
 			</form>
 
+            <!-- Botones adicionales -->
 			<div id="contenedorQR" class="contenedorQR"></div>
-		</div>
+			<button type="button" id="descargarPDF" class="btn">Descargar en PDF</button>
+			<button type="button" id="limpiar" class="btn">Limpiar</button>
+            <script class="contenedor">
+                // Crear el código QR cuando el usuario hace clic en "Generar QR"
+                document.getElementById("generarQR").addEventListener("click", function () {
+                    const link = document.getElementById("link").value;
+                    if (link.trim() === "") {
+                        alert("Por favor, ingresa un texto o URL.");
+                        return;
+                    }
+                    
+                    // Limpiar el contenedor antes de generar un nuevo QR
+                    document.getElementById("contenedorQR").innerHTML = "";
+    
+                    // Generar el código QR
+                    new QRCode(document.getElementById("contenedorQR"), {
+                        text: link,
+                        width: 128,
+                        height: 128,
+                    });
+                });
+    
+                // Función para descargar el QR generado como archivo PDF
+                document.getElementById("descargarPDF").addEventListener("click", function () {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+    
+                    // Verificar si el QR está generado
+                    const qrImage = document.querySelector("#contenedorQR img");
+                    if (!qrImage) {
+                        alert("Por favor, genera un código QR primero.");
+                        return;
+                    }
+    
+                    // Añadir la imagen del QR al PDF
+                    doc.addImage(qrImage, "PNG", 20, 20, 50, 50); // Ajusta las coordenadas y tamaño
+    
+                    // Descargar el archivo PDF
+                    doc.save("codigo_qr.pdf");
+                });
+    
+                // Función para limpiar los campos y el QR generado
+                document.getElementById("limpiar").addEventListener("click", function () {
+                    document.getElementById("link").value = "";
+                    document.getElementById("contenedorQR").innerHTML = "";
+                });
+            </script>
 
-</body><!----------------------------------------------------------------------------------->
+		</div>
+	</body>
 </html>
