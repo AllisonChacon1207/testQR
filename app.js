@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 
 app.get("/",(req, res) => {
-    res.sendFile(path.join(__dirname + "QR.html"));
+    res.sendFile(path.join(__dirname + "/QR.html"));
 });
 
 app.listen(3000, () => {
