@@ -66,7 +66,7 @@ import QrcodeVue from 'qrcode.vue'; // Importar la librería para generar QR
 
 export default {
   components: {
-    QrcodeVue, // Registrar el componente QR
+    QrcodeVue, // Registrar el QR
   },
   setup() {
     const dialogVisible = ref(false);
