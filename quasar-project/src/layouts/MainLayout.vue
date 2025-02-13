@@ -90,7 +90,7 @@ export default {
       { name: 'Eduardo', age: 25, address: 'Cañada 123' },
       { name: 'Anahi', age: 30, address: 'Pedregal 456' },
       { name: 'Lazaro', age: 35, address: 'Peña 789' },
-
+      { name: 'Noe', age: 19, address: 'Hoya 0101' },
     ];
 
     const onRowClick = (evt, row) => {
