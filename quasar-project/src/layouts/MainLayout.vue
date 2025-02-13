@@ -10,7 +10,6 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
-      <h3>Datos</h3>
 <!------------------------------------------------------------------------->
 <!------------------------------------------------------------------------->
     <div>
@@ -24,7 +23,7 @@
     />
 <!------------------------------------------------------------------------->
 <!------------------------------------------------------------------------->
-    <!-- Diálogo para mostrar la información de la celda y generar QR -->
+    <!-- la información de la celda y generar QR -->
     <q-dialog v-model="dialogVisible">
       <q-card>
         <q-card-section>
@@ -72,7 +71,7 @@ export default {
   setup() {
     const dialogVisible = ref(false);
     const cellInfo = ref('');
-    const qrCodeVisible = ref(false); // Controlar la visibilidad del QR
+    const qrCodeVisible = ref(false); // VER QR
     const qrValue = ref(''); // Valor para generar el QR
 
     const columns = [
@@ -82,9 +81,16 @@ export default {
     ];
 
     const rows = [
-      { name: 'Juan', age: 25, address: 'Calle 123' },
-      { name: 'Ana', age: 30, address: 'Avenida 456' },
-      { name: 'Luis', age: 35, address: 'Plaza 789' },
+      { name: 'Juan', age: 25, address: 'La Joya 123' },
+      { name: 'Ana', age: 30, address: 'Residencial 456' },
+      { name: 'Luis', age: 35, address: 'Barrio 789' },
+      { name: 'Mario', age: 25, address: 'Las Uvas 123' },
+      { name: 'Allison', age: 30, address: 'Arboleda 456' },
+      { name: 'Carlos', age: 35, address: 'Kennedy 789' },
+      { name: 'Eduardo', age: 25, address: 'Cañada 123' },
+      { name: 'Anahi', age: 30, address: 'Pedregal 456' },
+      { name: 'Lazaro', age: 35, address: 'Peña 789' },
+
     ];
 
     const onRowClick = (evt, row) => {
@@ -115,6 +121,3 @@ export default {
 </script>
 <!------------------------------------------------------------------------->
 <!------------------------------------------------------------------------->
-<style scoped>
-/* Estilos personalizados si es necesario */
-</style>
