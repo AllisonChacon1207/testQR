@@ -1,5 +1,19 @@
 <template>
-  <div>
+  <q-layout view="hHh lpR fFf">
+    <q-header bordered class="bg-primary text-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          </q-avatar>
+          Tabla de Datos
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-header>
+      <h3>Datos</h3>
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
+    <div>
     <!-- Tabla de Quasar -->
     <q-table
       title="Mi Tabla"
@@ -8,7 +22,8 @@
       row-key="name"
       @row-click="onRowClick"
     />
-
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
     <!-- Diálogo para mostrar la información de la celda y generar QR -->
     <q-dialog v-model="dialogVisible">
       <q-card>
@@ -19,7 +34,8 @@
         <q-card-section>
           {{ cellInfo }}
         </q-card-section>
-
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
         <!-- Botón para generar QR -->
         <q-card-section>
           <q-btn
@@ -28,7 +44,8 @@
             @click="generateQR"
           />
         </q-card-section>
-
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
         <!-- Mostrar el código QR generado -->
         <q-card-section v-if="qrCodeVisible">
           <qrcode-vue :value="qrValue" :size="200" level="H" />
@@ -39,9 +56,11 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-  </div>
+      </div>
+  </q-layout>
 </template>
-
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
 <script>
 import { ref } from 'vue';
 import QrcodeVue from 'qrcode.vue'; // Importar la librería para generar QR
@@ -94,7 +113,8 @@ export default {
   },
 };
 </script>
-
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
 <style scoped>
 /* Estilos personalizados si es necesario */
 </style>
