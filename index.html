@@ -1,33 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Personas</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capturar Click en Celda</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    td {
+      cursor: pointer; /* Cambia el cursor al pasar sobre las celdas */
+    }
+  </style>
 </head>
 <body>
-    <h1>Tabla de Personas</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Footer 1</td>
-            <td>Footer 2</td>
-          </tr>
-        </tfoot>
-      </table>
-      
+
+  <table id="miTabla">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Ciudad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Juan</td>
+        <td>25</td>
+        <td>Madrid</td>
+      </tr>
+      <tr>
+        <td>Ana</td>
+        <td>30</td>
+        <td>Barcelona</td>
+      </tr>
+      <tr>
+        <td>Carlos</td>
+        <td>22</td>
+        <td>Valencia</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p id="infoCelda"></p>
+
+  <script>
+    // Seleccionar la tabla
+    const tabla = document.getElementById("miTabla");
+
+    // Seleccionar el párrafo donde se mostrará la información
+    const infoCelda = document.getElementById("infoCelda");
+
+    // Agregar un evento click a las celdas de la tabla
+    tabla.addEventListener("click", function(event) {
+      // Verificar si el elemento clickeado es una celda (td)
+      if (event.target.tagName === "TD") {
+        // Obtener el contenido de la celda clickeada
+        const contenido = event.target.textContent;
+
+        // Mostrar el contenido en el párrafo
+        infoCelda.textContent = `Información de la celda: ${contenido}`;
+      }
+    });
+  </script>
 </body>
 </html>
