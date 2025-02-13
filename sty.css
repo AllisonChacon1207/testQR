@@ -1,0 +1,9 @@
+/* Añade un borde más grueso y oscuro entre los grupos de tablas */
+.table-group-divider {
+    border-top: 3px solid #000; /* Cambia el grosor y el color del borde */
+  }
+  
+  /* Aplica el estilo a los elementos <thead>, <tbody>, y <tfoot> */
+  thead, tbody, tfoot {
+    border-top: 3px solid #000; /* Asegúrate de que el borde sea consistente */
+  }
