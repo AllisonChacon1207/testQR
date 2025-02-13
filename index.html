@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capturar Click en Celda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script defer src="app.js"></script>
   <style>
     table {
       width: 100%;
@@ -20,10 +27,18 @@
     td {
       cursor: pointer; /* Cambia el cursor al pasar sobre las celdas */
     }
+
+    #infoCelda {
+            border: 2px solid #000; /* Borde negro de 2px */
+            padding: 10px; /* Espacio interno */
+            margin-top: 20px; /* Margen superior */
+            display: inline-block; /* Para que el ancho se ajuste al contenido */
+        }
+
   </style>
 </head>
-<body>
 
+<body><!------------------------------------------------------------------------->
   <table id="miTabla">
     <thead>
       <tr>
@@ -53,6 +68,12 @@
 
   <p id="infoCelda"></p>
 
+  <div class="contenedor">
+    <button type="button" class="btn" id="generarQR">Generar QR</button>
+  </div>
+
+  <div id="qrcode"></div>
+
   <script>
     // Seleccionar la tabla
     const tabla = document.getElementById("miTabla");
@@ -60,17 +81,95 @@
     // Seleccionar el párrafo donde se mostrará la información
     const infoCelda = document.getElementById("infoCelda");
 
+    // Seleccionar el contenedor del QR
+    const qrCodeContainer = document.getElementById("qrcode");
+
+    // Variable para almacenar el contenido de la celda clickeada
+    let contenidoCelda = "";
+
     // Agregar un evento click a las celdas de la tabla
     tabla.addEventListener("click", function(event) {
       // Verificar si el elemento clickeado es una celda (td)
       if (event.target.tagName === "TD") {
         // Obtener el contenido de la celda clickeada
-        const contenido = event.target.textContent;
+        contenidoCelda = event.target.textContent;
 
         // Mostrar el contenido en el párrafo
-        infoCelda.textContent = `Información de la celda: ${contenido}`;
+        infoCelda.textContent = `Información de la celda: ${contenidoCelda}`;
+      }
+    });
+
+    // Agregar un evento click al botón "Generar QR"
+    document.getElementById("generarQR").addEventListener("click", function() {
+      // Limpiar el contenedor del QR antes de generar uno nuevo
+      qrCodeContainer.innerHTML = "";
+
+      // Generar el código QR con el contenido de la celda
+      if (contenidoCelda) {
+        new QRCode(qrCodeContainer, {
+          text: contenidoCelda,
+          width: 128,
+          height: 128,
+        });
+      } else {
+        alert("Por favor, selecciona una celda primero.");
       }
     });
   </script>
+<!------------------------------------------------------------------------->
+
+
+    <!-- Botones adicionales -->
+    <div id="contenedorQR" class="contenedorQR"></div>
+    <button type="button" id="descargarPDF" class="btn">Descargar en PDF</button>
+    <button type="button" id="limpiar" class="btn">Limpiar</button>
+    <script class="contenedor">
+
+        // Crear el código QR cuando el usuario hace clic en "Generar QR"
+        document.getElementById("generarQR").addEventListener("click", function () {
+            const link = document.getElementById("link").value;
+            if (link.trim() === "") {
+                alert("Por favor, ingresa un texto o URL.");
+                return;
+            }
+            
+            // Limpiar el contenedor antes de generar un nuevo QR
+            document.getElementById("contenedorQR").innerHTML = "";
+
+            // Generar el código QR
+            new QRCode(document.getElementById("contenedorQR"), {
+                text: link,
+                width: 128,
+                height: 128,
+            });
+        });
+
+        // Función para descargar el QR generado como archivo PDF
+        document.getElementById("descargarPDF").addEventListener("click", function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Verificar si el QR está generado
+            const qrImage = document.querySelector("#contenedorQR img");
+            if (!qrImage) {
+                alert("Por favor, genera un código QR primero.");
+                return;
+            }
+
+            // Añadir la imagen del QR al PDF
+            doc.addImage(qrImage, "PNG", 20, 20, 50, 50); // Ajusta las coordenadas y tamaño
+
+            // Descargar el archivo PDF
+            doc.save("codigo_qr.pdf");
+        });
+
+        // Función para limpiar los campos y el QR generado
+        document.getElementById("limpiar").addEventListener("click", function () {
+            document.getElementById("link").value = "";
+            document.getElementById("contenedorQR").innerHTML = "";
+        });
+    </script>
+</div>
+
 </body>
 </html>
